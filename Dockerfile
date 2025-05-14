@@ -1,11 +1,12 @@
 FROM redhat/ubi9-minimal
 
-# Install curl and jq, copy the script, make it executable
-COPY fetch_title.sh /fetch_title.sh
-
-RUN microdnf install -y curl jq && \
-    chmod +x /fetch_title.sh && \
+# Install jq 
+RUN microdnf install -y jq && \
     microdnf clean all
 
-# Run the script when the container starts
+# Copy script and make it executable
+COPY fetch_title.sh /fetch_title.sh
+RUN chmod +x /fetch_title.sh
+
+# Run script on container start
 CMD ["/fetch_title.sh"]
