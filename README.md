@@ -8,7 +8,9 @@ This project extracts the title of a slideshow from the **[HTTPBin API](https://
 ## Steps to Test
 
  docker build -t my_image .
+ 
  docker run -d my_image
+ 
  docker logs $(docker ps -lq)
 
 ### Should return: Slideshow title: Sample Slide Show
